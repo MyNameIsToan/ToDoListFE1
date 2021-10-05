@@ -1,0 +1,25 @@
+<div style="width: 70%; text-align: center; margin: 0 auto;">
+  <table class="table">
+    <div *ngFor="let note1 of ListOfNote">
+      <tr *ngIf="note1.parentid.toString() === Condition">
+        <td style="width: 15em;">{{note1.username}}</td>
+        <td style="width: 10em;">{{note1.id}}</td>
+        <td style="width: 25em;">{{note1.content}}</td>
+        <td style="width: 20em;">
+          <button type="button" class="btn btn-danger" (click)="RemoveNote(note1.id)">Remove</button>
+        </td>
+      </tr>
+    <tbody *ngFor="let note2 of ListOfNote">
+      <tr *ngIf="note2.parentid === note1.id && note2.id !== note1.id">
+        <td></td>
+        <td>{{note2.id}}</td>
+        <td>{{note2.content}}</td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="RemoveNote(note2.id)">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </div>
+  </table>
+  </div>
+
